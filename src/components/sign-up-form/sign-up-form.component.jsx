@@ -4,6 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
+
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import "./sign-up-form.style.scss";
@@ -18,6 +19,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFileds, setFormFileds] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFileds;
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -41,6 +43,8 @@ const SignUpForm = () => {
         email,
         password
       );
+
+      
 
       const userDocRef = await createUserDocumentFromAuth(user, {
         displayName,
